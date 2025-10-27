@@ -21,8 +21,14 @@ static void	burning_step(double *x, double *y, double cx, double cy)
 
 	xx = (*x) * (*x);
 	yy = (*y) * (*y);
-	ax = (*x >= 0.0) ? *x : -*x;
-	ay = (*y >= 0.0) ? *y : -*y;
+	if (*x >= 0.0)
+		ax = *x;
+	else
+		ax = -*x;
+	if (*y >= 0.0)
+		ay = *y;
+	else
+		ay = -*y;
 	*y = 2.0 * ax * ay + cy;
 	*x = (xx - yy) + cx;
 	if (*x < 0.0)

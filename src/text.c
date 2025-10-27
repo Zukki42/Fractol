@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   text.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bavirgil <bavirgil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 17:29:51 by bavirgil          #+#    #+#             */
-/*   Updated: 2025/10/27 12:08:31 by bavirgil         ###   ########.fr       */
+/*   Created: 2025/10/24 15:04:47 by bavirgil          #+#    #+#             */
+/*   Updated: 2025/10/24 15:04:50 by bavirgil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	julia_iter(double zx, double zy, double cre, double cim)
+void	print_usage_julia(void)
 {
-	const int	max_it = 128;
-	double		zx2;
-	double		zy2;
-	int			i;
+	ft_printf("Usage: ./fractol julia <re> <im>\n");
+}
 
-	i = 0;
-	while (i < max_it)
-	{
-		zx2 = zx * zx;
-		zy2 = zy * zy;
-		if (zx2 + zy2 > 4.0)
-			break ;
-		zy = 2.0 * zx * zy + cim;
-		zx = zx2 - zy2 + cre;
-		i++;
-	}
-	return (i);
+void	print_help(void)
+{
+	ft_printf("Usage:\n");
+	ft_printf("  ./fractol mandelbrot\n");
+	ft_printf("  ./fractol julia <re> <im>\n");
+	ft_printf("  ./fractol burning\n");
 }

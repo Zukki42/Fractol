@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bavirgil <bavirgil@student.42heilbronn.de> +#+  +:+       +#+        */
+/*   By: bavirgil <bavirgil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 17:29:11 by bavirgil          #+#    #+#             */
-/*   Updated: 2025/10/03 18:06:34 by bavirgil         ###   ########.fr       */
+/*   Updated: 2025/10/27 12:08:07 by bavirgil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 static void	zoom_at(t_fractol *f, double mx, double my, double factor)
 {
-	double	x = (mx - WIDTH / 2.0) / (0.5 * f->zoom * WIDTH) + f->offset_x;
-	double	y = (my - HEIGHT / 2.0) / (0.5 * f->zoom * HEIGHT) + f->offset_y;
+	double	x;
+	double	y;
 	double	nx;
 	double	ny;
 
+	x = (mx - WIDTH / 2.0) / (0.5 * f->zoom * WIDTH) + f->offset_x;
+	y = (my - HEIGHT / 2.0) / (0.5 * f->zoom * HEIGHT) + f->offset_y;
 	f->zoom *= factor;
 	nx = (mx - WIDTH / 2.0) / (0.5 * f->zoom * WIDTH);
 	ny = (my - HEIGHT / 2.0) / (0.5 * f->zoom * HEIGHT);

@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   string.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bavirgil <bavirgil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 17:29:51 by bavirgil          #+#    #+#             */
-/*   Updated: 2025/10/27 12:08:31 by bavirgil         ###   ########.fr       */
+/*   Created: 2025/10/24 15:04:55 by bavirgil          #+#    #+#             */
+/*   Updated: 2025/10/24 15:05:51 by bavirgil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	julia_iter(double zx, double zy, double cre, double cim)
+int	ft_strcmp(const char *a, const char *b)
 {
-	const int	max_it = 128;
-	double		zx2;
-	double		zy2;
-	int			i;
+	size_t	i;
 
+	if (!a || !b)
+		return (a != b);
 	i = 0;
-	while (i < max_it)
-	{
-		zx2 = zx * zx;
-		zy2 = zy * zy;
-		if (zx2 + zy2 > 4.0)
-			break ;
-		zy = 2.0 * zx * zy + cim;
-		zx = zx2 - zy2 + cre;
-		i++;
-	}
-	return (i);
+	while (a[i] && b[i] && a[i] == b[i])
+		++i;
+	return ((unsigned char)a[i] - (unsigned char)b[i]);
 }
